@@ -12,12 +12,10 @@
     tools:context="com.example.user.cathaymum.InFlightOrderActivity"
     tools:showIn="@layout/activity_in_flight_order">
 
-    <Button
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click"
+        android:id="@+id/orderList"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="108dp"
-        android:id="@+id/inFlightOrderButton" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="orderArray">
+        <item>Blanket</item>
+        <item>Water</item>
+        <item>Flight Attendant</item>
+    </string-array>
+</resources>

@@ -1,5 +1,8 @@
 package com.example.user.cathaymum;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,8 +11,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -24,6 +33,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,12 +55,17 @@ public class InFlightOrderActivity extends AppCompatActivity {
             }
         });
 
-        Button button = (Button) findViewById(R.id.inFlightOrderButton);
-        button.setOnClickListener(new View.OnClickListener() {
+
+        InflightAdapter adapter = new InflightAdapter(this, R.layout.in_flight_row, getResources().getStringArray(R.array.orderArray));
+        ListView listView = (ListView) findViewById(R.id.orderList);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onClick(View v) {
-                InFlightAsync async=new InFlightAsync();
-                async.execute("1");
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                int itemPosition = position;
+                InFlightAsync async = new InFlightAsync();
+                async.execute(Integer.toString(itemPosition));
+                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -159,6 +174,47 @@ public class InFlightOrderActivity extends AppCompatActivity {
         }
 
 
+    }
+
+
+
+    public class InflightAdapter extends ArrayAdapter<String> {
+        Context context;
+        int layoutResourceId;
+        String data[] = null;
+
+        public InflightAdapter(Context context, int layoutResourceId, String[] data){
+            super(context, layoutResourceId, data);
+            this.layoutResourceId = layoutResourceId;
+            this.context = context;
+            this.data = data;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent){
+            View row = convertView;
+            rowHolder holder = null;
+            if(row == null){
+                LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+                row = inflater.inflate(layoutResourceId, parent, false);
+                holder = new rowHolder();
+                holder.item = (TextView)row.findViewById(R.id.orderItem);
+                holder.itemButton = (Button)row.findViewById(R.id.inFlightOrderButton);
+                row.setTag(holder);
+            }
+            else{
+                holder = (rowHolder)row.getTag();
+            }
+            String itemName = data[position];
+            holder.item.setText(itemName);
+            holder.itemButton.setText("Submit");
+            return row;
+        }
+
+        public class rowHolder{
+            TextView item;
+            Button itemButton;
+        }
     }
 
 }
