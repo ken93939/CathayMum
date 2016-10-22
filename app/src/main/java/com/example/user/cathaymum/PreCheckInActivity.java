@@ -1,5 +1,6 @@
 package com.example.user.cathaymum;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class PreCheckInActivity extends AppCompatActivity {
-
+    private final String TAG=this.getClass().getCanonicalName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,8 @@ public class PreCheckInActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
 
 
     }
@@ -128,7 +131,7 @@ public class PreCheckInActivity extends AppCompatActivity {
                 jsonString = buffer.toString();
                 Log.i(TAG,jsonString);
             }
-            catch(IOException e){
+            catch(Exception e){
                 Log.e(TAG, "Error ", e);
                 return null;
             }
@@ -161,6 +164,20 @@ public class PreCheckInActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject jsonObject) {
             Toast toast= Toast.makeText(PreCheckInActivity.this,jsonObject.toString(),Toast.LENGTH_LONG);
             toast.show();
+            try {
+                String date=jsonObject.getString("eta");
+                String queue_no=jsonObject.getString("queue_no");
+                Log.i(TAG,date);
+                Log.i(TAG,queue_no);
+                Intent intent=new Intent(PreCheckInActivity.this, NotifyPreCheckInActivity.class);
+                intent.putExtra("date",date);
+                intent.putExtra("queue_no",queue_no);
+                Log.i(TAG,"starting activity NotifyPreCheckInActivity");
+                startActivity(intent);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.e(TAG,e.getLocalizedMessage());
+            }
         }
     }
 }
