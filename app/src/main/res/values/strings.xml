@@ -4,4 +4,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_pre_check_in">PreCheckInActivity</string>
     <string name="title_activity_pre_flight">PreFlightActivity</string>
+    <string name="title_activity_in_flight_order">InFlightOrderActivity</string>
+    <string name="title_activity_notify_pre_check_in">NotifyPreCheckInActivity</string>
 </resources>

@@ -27,12 +27,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class PreFlightActivity extends AppCompatActivity {
+public class InFlightOrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pre_flight);
+        setContentView(R.layout.activity_in_flight_order);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,18 +45,19 @@ public class PreFlightActivity extends AppCompatActivity {
             }
         });
 
-        Button button = (Button) findViewById(R.id.preFlightActivityButton);
+        Button button = (Button) findViewById(R.id.inFlightOrderButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreFlightAsync async= new PreFlightAsync();
-                async.execute("CX1234","eco");
+                InFlightAsync async=new InFlightAsync();
+                async.execute("1");
             }
         });
-
     }
 
-    public class PreFlightAsync extends AsyncTask<String,Void,JSONObject> {
+
+
+    public class InFlightAsync extends AsyncTask<String,Void,JSONObject> {
         public String TAG=this.getClass().getCanonicalName();
 
         @Override
@@ -78,8 +79,7 @@ public class PreFlightActivity extends AppCompatActivity {
                 urlConnection.setRequestMethod("POST");
 
                 HashMap<String, String> parameters = new HashMap<String, String>();
-                parameters.put("flightNo", params[0]);
-                parameters.put("cabinClass",params[1]);
+                parameters.put("itemId", params[0]);
                 Set set = parameters.entrySet();
                 Iterator i = set.iterator();
                 StringBuilder postData = new StringBuilder();
@@ -154,7 +154,7 @@ public class PreFlightActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            Toast toast= Toast.makeText(PreFlightActivity.this,jsonObject.toString(),Toast.LENGTH_LONG);
+            Toast toast= Toast.makeText(InFlightOrderActivity.this,jsonObject.toString(),Toast.LENGTH_LONG);
             toast.show();
         }
 

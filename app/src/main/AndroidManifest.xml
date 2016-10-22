@@ -31,6 +31,14 @@
         <activity
             android:name=".PreFlightActivity"
             android:label="@string/title_activity_pre_flight"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InFlightOrderActivity"
+            android:label="@string/title_activity_in_flight_order"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NotifyPreCheckInActivity"
+            android:label="@string/title_activity_notify_pre_check_in"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
