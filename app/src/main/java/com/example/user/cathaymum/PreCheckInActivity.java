@@ -16,13 +16,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class PreCheckInActivity extends AppCompatActivity {
 
@@ -38,7 +45,7 @@ public class PreCheckInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PreCheckInAsync async = new PreCheckInAsync();
-                async.execute("abc", "123", "1234asb");
+                async.execute("abc", "123");
             }
         });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -52,6 +59,8 @@ public class PreCheckInActivity extends AppCompatActivity {
 
 
     }
+
+
     public class PreCheckInAsync extends AsyncTask<String,Void,JSONObject>{
         public String TAG=this.getClass().getCanonicalName();
 
@@ -62,10 +71,7 @@ public class PreCheckInActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority(Constant.IP)
                     .appendPath("app")
-                    .appendPath("pcheck")
-                    .appendQueryParameter("name",params[0])
-                    .appendQueryParameter("passportNo",params[1])
-                    .appendQueryParameter("ticketNo",params[2]);
+                    .appendPath("pcheck");
 
             String myUrl=builder.build().toString();
             Log.i(TAG, myUrl);
@@ -76,18 +82,25 @@ public class PreCheckInActivity extends AppCompatActivity {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
 
-//                List<String> params = new ArrayList<String>();
-//                params.add(new BasicNameValuePair("firstParam", paramValue1));
-//                params.add(new BasicNameValuePair("secondParam", paramValue2));
-//                params.add(new BasicNameValuePair("thirdParam", paramValue3));
-//
-//                OutputStream os = conn.getOutputStream();
-//                BufferedWriter writer = new BufferedWriter(
-//                        new OutputStreamWriter(os, "UTF-8"));
-//                writer.write(getQuery(params));
-//                writer.flush();
-//                writer.close();
-//                os.close();
+                HashMap<String, String> parameters = new HashMap<String, String>();
+                parameters.put("name", params[0]);
+                parameters.put("ticket_no",params[1]);
+                Set set = parameters.entrySet();
+                Iterator i = set.iterator();
+                StringBuilder postData = new StringBuilder();
+                for (Map.Entry<String, String> param : parameters.entrySet()) {
+                    if (postData.length() != 0) {
+                        postData.append('&');
+                    }
+                    postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+                    postData.append('=');
+                    postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+                }
+                byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+                urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                urlConnection.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
+                urlConnection.setDoOutput(true);
+                urlConnection.getOutputStream().write(postDataBytes);
 
                 urlConnection.connect();
 
