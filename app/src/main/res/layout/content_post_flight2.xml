@@ -12,4 +12,27 @@
     tools:context="com.example.user.cathaymum.PostFlightActivity"
     tools:showIn="@layout/activity_post_flight2">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Ariport"
+        android:id="@+id/PostFlightAirport"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Airport Indoor Map"
+        android:id="@+id/PostFlightIndoor"
+        android:layout_below="@+id/PostFlightAirport"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_below="@+id/PostFlightIndoor"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

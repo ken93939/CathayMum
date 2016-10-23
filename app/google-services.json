@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "695415572596",
+    "firebase_url": "https://polished-watch-138623.firebaseio.com",
+    "project_id": "polished-watch-138623",
+    "storage_bucket": "polished-watch-138623.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695415572596:android:9c54d2e971f1d5f9",
+        "android_client_info": {
+          "package_name": "com.example.user.cathaymum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695415572596-omh0u6f6hbhjcff7euhm6fj9hef8f9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjiLXfY3_Ry47_P5JbOuOwltK3Ncryo2w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
