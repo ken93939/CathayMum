@@ -12,10 +12,4 @@
     tools:context="com.example.user.cathaymama.PreCheckInActivity"
     tools:showIn="@layout/activity_pre_check_in">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="click"
-        android:id="@+id/preCheckInButton"
-        android:layout_alignParentTop="true" />
 </RelativeLayout>
