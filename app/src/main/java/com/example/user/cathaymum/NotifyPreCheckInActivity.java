@@ -17,6 +17,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -99,6 +100,17 @@ public class NotifyPreCheckInActivity extends AppCompatActivity {
 //        intent.putExtra("time",diff);
 //        intent.putExtra("messenger", new Messenger(handler));
 //        startService(intent);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent a = new Intent(this,MainActivity.class);
+            a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(a);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 

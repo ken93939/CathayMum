@@ -28,7 +28,14 @@
         <activity
             android:name=".PreCheckInActivity"
             android:label="@string/title_activity_pre_check_in"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
+
         <activity
             android:name=".PreFlightActivity"
             android:label="@string/title_activity_pre_flight"
@@ -67,11 +74,7 @@
             android:name=".PostFlightActivity"
             android:label="@string/title_activity_post_flight"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
         </activity>

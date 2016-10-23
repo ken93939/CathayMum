@@ -40,15 +40,15 @@ public class PreCheckInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pre_check_in);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Button button= (Button) findViewById(R.id.preCheckInButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PreCheckInAsync async = new PreCheckInAsync();
-                async.execute("abc", "123");
-            }
-        });
+        PreCheckInAsync async = new PreCheckInAsync();
+        async.execute("Chan Sai On", "CX08521231");
+//        Button button= (Button) findViewById(R.id.preCheckInButton);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,8 @@ public class PreCheckInActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
 
 
 
