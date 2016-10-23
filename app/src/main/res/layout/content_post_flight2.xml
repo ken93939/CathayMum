@@ -18,7 +18,8 @@
         android:text="Go to Ariport"
         android:id="@+id/PostFlightAirport"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="80dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -26,13 +27,14 @@
         android:text="Airport Indoor Map"
         android:id="@+id/PostFlightIndoor"
         android:layout_below="@+id/PostFlightAirport"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="80dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Nearby Transit"
+        android:id="@+id/PostFligthNearbyTransit"
         android:layout_below="@+id/PostFlightIndoor"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -29,7 +29,8 @@ public class ProcessPostFlightActivity extends AppCompatActivity {
 
 
 
-        int choice=1;
+        int choice=getIntent().getIntExtra("choice",0);
+
         Uri gmmIntentUri = null;
         switch(choice){
             case 1: gmmIntentUri = Uri.parse("google.navigation:q=22.308047,113.9162921"); break;

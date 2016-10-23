@@ -64,8 +64,7 @@ public class InFlightOrderActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 int itemPosition = position;
                 InFlightAsync async = new InFlightAsync();
-                async.execute(Integer.toString(itemPosition));
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_LONG).show();
+                async.execute(Integer.toString(itemPosition), String.valueOf((int)Math.random() * 123 + 1));
             }
         });
     }

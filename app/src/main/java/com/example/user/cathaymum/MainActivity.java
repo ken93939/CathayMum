@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -25,6 +26,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
+
+        Button preCheck= (Button) findViewById(R.id.preCheckInButton);
+        preCheck.setOnClickListener(this);
+        Button preFlight= (Button) findViewById(R.id.preFlightButton);
+        preFlight.setOnClickListener(this);
+        Button InFlight= (Button) findViewById(R.id.InFlightButton);
+        InFlight.setOnClickListener(this);
+        Button PostFlight= (Button) findViewById(R.id.PostFlightButton);
+        PostFlight.setOnClickListener(this);
 
 
     }
