@@ -82,7 +82,7 @@ public class InFlightOrderActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority(Constant.IP)
                     .appendPath("app")
-                    .appendPath("pcheck");
+                    .appendPath("order");
 
             String myUrl=builder.build().toString();
             Log.i(TAG, myUrl);
@@ -94,7 +94,8 @@ public class InFlightOrderActivity extends AppCompatActivity {
                 urlConnection.setRequestMethod("POST");
 
                 HashMap<String, String> parameters = new HashMap<String, String>();
-                parameters.put("itemId", params[0]);
+                parameters.put("order_type", params[0]);
+                parameters.put("seat_no",params[1]);
                 Set set = parameters.entrySet();
                 Iterator i = set.iterator();
                 StringBuilder postData = new StringBuilder();
