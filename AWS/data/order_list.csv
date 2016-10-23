@@ -1,0 +1,15 @@
+order_type,seat_no,time,order_status
+food,28A,20:45:25,finshed
+food,12A,20:47:42,unfinish
+others,19A,20:49:09,unfinish
+blanket,14A,20:49:30,unfinish
+food,20A,20:49:32,unfinish
+blanket,12A,20:49:34,unfinish
+food,17A,20:49:35,unfinish
+others,14A,21:15:09,unfinish
+blanket,15A,03:49:46,unfinish
+0,87.63422714490406,03:50:54,unfinish
+1,38.84671668641646,03:51:32,unfinish
+2,31.634696040318374,03:51:35,unfinish
+0,1,04:19:01,unfinish
+0,1,04:28:31,unfinish
