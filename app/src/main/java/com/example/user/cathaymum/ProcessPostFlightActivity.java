@@ -35,7 +35,7 @@ public class ProcessPostFlightActivity extends AppCompatActivity {
         switch(choice){
             case 1: gmmIntentUri = Uri.parse("google.navigation:q=22.308047,113.9162921"); break;
             case 2: gmmIntentUri = null; break;
-            case 3: gmmIntentUri = Uri.parse("geo:34.4320024,135.2282052?z=10&q=public transit"); break;
+            case 3: gmmIntentUri = Uri.parse("geo:31.1443485,121.8060843?z=10&q=public transit"); break;
             default: return;
         }
         if(gmmIntentUri==null && choice==2){

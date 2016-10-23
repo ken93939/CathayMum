@@ -165,7 +165,7 @@ public class PostFlightActivity extends AppCompatActivity implements View.OnClic
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            Toast toast= Toast.makeText(PostFlightActivity.this,"Notified you mum already",Toast.LENGTH_LONG);
+            Toast toast= Toast.makeText(PostFlightActivity.this,"Notified your mum already",Toast.LENGTH_LONG);
             toast.show();
             startActivity(intent);
         }
