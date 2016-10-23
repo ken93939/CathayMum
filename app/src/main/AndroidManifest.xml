@@ -28,14 +28,13 @@
         <activity
             android:name=".PreCheckInActivity"
             android:label="@string/title_activity_pre_check_in"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
-
+        </activity>
         <activity
             android:name=".PreFlightActivity"
             android:label="@string/title_activity_pre_flight"
@@ -43,7 +42,7 @@
         <activity
             android:name=".InFlightOrderActivity"
             android:label="@string/title_activity_in_flight_order"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NotifyPreCheckInActivity"
             android:label="@string/title_activity_notify_pre_check_in"
@@ -67,17 +66,15 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-
-        </activity>
+            android:label="@string/title_activity_maps"></activity>
+        <activity
+            android:name=".ProcessPostFlightActivity"
+            android:label="@string/title_activity_post_flight"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".PostFlightActivity"
             android:label="@string/title_activity_post_flight"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

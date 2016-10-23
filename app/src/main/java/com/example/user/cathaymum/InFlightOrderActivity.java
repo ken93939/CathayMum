@@ -170,7 +170,7 @@ public class InFlightOrderActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            Toast toast= Toast.makeText(InFlightOrderActivity.this,jsonObject.toString(),Toast.LENGTH_LONG);
+            Toast toast= Toast.makeText(InFlightOrderActivity.this,"Order has been processed",Toast.LENGTH_LONG);
             toast.show();
         }
 
